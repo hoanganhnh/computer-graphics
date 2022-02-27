@@ -15,7 +15,7 @@ void Bresenham_Circle(int xc, int yc, int Radius, int color){
     x = 0;
     y = Radius;
     p = 3 - 2 * Radius;
-    // pc(xc,yc, Radius,0, color);
+    pc(xc,yc, Radius,0, color);
     while (x < y){
         // cout << x << ", " << y << endl;
         putpixel(xc + x, yc + y, color);
@@ -26,16 +26,16 @@ void Bresenham_Circle(int xc, int yc, int Radius, int color){
             y--;
         }
         x++;
-        // pc(xc,yc, x,y, color);
-        // pc(xc,yc, y,x, color);
+        pc(xc,yc, x,y, color);
+        pc(xc,yc, y,x, color);
     }
-    // pc(xc,yc, y,y, color);
+    pc(xc,yc, y,y, color);
 }
 int main(){
     int gr_drive = DETECT, gr_mode;
     initgraph(&gr_drive, &gr_mode, (char*)"");
-    // Bresenham_Circle(getmaxx() / 2, getmaxy() / 2, 150, 4);
-    Bresenham_Circle(0, 0, 10, 4);
+    Bresenham_Circle(getmaxx() / 2, getmaxy() / 2, 150, 4);
+    // Bresenham_Circle(0, 0, 10, 4);
     getch();
     closegraph();
     return 0;
